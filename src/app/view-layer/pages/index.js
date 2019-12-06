@@ -1,2 +1,6 @@
-export { default as Home } from './Home'
+export { default as  Home } from './Home'
 export { default as About } from './About'
+export { default as Authentication }  from './Authentication'
+export { default as Dashboard }  from './Dashboard'
+export { default as Products }  from './Products'
+export { default as Users }  from './Users'

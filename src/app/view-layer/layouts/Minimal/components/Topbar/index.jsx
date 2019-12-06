@@ -1,9 +1,10 @@
-import React from 'react'
-import { Link as RouterLink } from 'react-router-dom'
-import clsx from 'clsx'
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import clsx from 'clsx';
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/styles'
-import { AppBar, Toolbar, Typography } from '@material-ui/core'
+import { makeStyles } from '@material-ui/styles';
+import { AppBar, Toolbar, IconButton, Hidden } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -35,7 +36,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const Topbar = props => {
-  const { className, ...rest } = props
+  const { className, onSidebarOpen, ...rest } = props
 
   const classes = useStyles()
 
@@ -54,9 +55,16 @@ const Topbar = props => {
             src="/images/logos/windmill.svg"
           />
         </RouterLink>
+        <Hidden lgUp>
         <RouterLink to="/about" className={classes.rightItem}>
-          ABOUT
+          <IconButton
+            color="inherit"
+            onClick={onSidebarOpen}
+          >
+            <MenuIcon />
+          </IconButton>
         </RouterLink>
+        </Hidden>
       </Toolbar>
     </AppBar>
   )
